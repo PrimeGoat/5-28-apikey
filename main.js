@@ -126,6 +126,11 @@ interact.on('line', (line) => {
             }
             break;
         case "id": // We're expecting an id number to narrow down the matches that were found
+            if(line == "exit") {
+                print('Exiting.');
+                process.exit(0);
+            }
+
             if(typeof matches[line] == "undefined") {
                 print(`ID ${line} is not in the available results.  Try again:\n`);
                 for(id in matches) {
