@@ -45,7 +45,7 @@ const processData = function(data) {
     print(sprintf("Speed:        %3d       Combat:     %3d", data.powerstats.speed, data.powerstats.combat));
 }
 
-// Helps narrow down which superhero is being searched for
+// Does a search for superhero by name using glob matching
 let matches;
 const matchHero = function(query) {
     matches = {};
