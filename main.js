@@ -32,7 +32,7 @@ const lookupHero = function(id) {
 const processData = function(data) {
     data = data.data;
 
-    print(`Superhero report for ${data.name} (${data.biography["full-name"]}):`);
+    print(`Superhero report for ${data.name} (${data.biography["full-name"]}):\n`);
 
     print("BIOMETRICS:");
     print(sprintf("Gender:    %-10s   Race:       %s", data.appearance.gender, data.appearance.race));
@@ -40,9 +40,9 @@ const processData = function(data) {
     print(sprintf("Eye Color: %-10s   Hair Color: %s", data.appearance["eye-color"], data.appearance["hair-color"]));
 
     print(`\nPOWER STATS:`);
-    print(sprintf("Intelligence: %3d       Durability: %3d", data.powerstats.intelligence, data.powerstats.durability));
-    print(sprintf("Strength:     %3d       Power:      %3d", data.powerstats.strength, data.powerstats.power));
-    print(sprintf("Speed:        %3d       Combat:     %3d", data.powerstats.speed, data.powerstats.combat));
+    print(sprintf("Intelligence: %4s      Durability: %4s", data.powerstats.intelligence, data.powerstats.durability));
+    print(sprintf("Strength:     %4s      Power:      %4s", data.powerstats.strength, data.powerstats.power));
+    print(sprintf("Speed:        %4s      Combat:     %4s", data.powerstats.speed, data.powerstats.combat));
 }
 
 // Does a search for superhero by name using glob matching
@@ -67,7 +67,7 @@ const print = function(text) {
 const promptForInput = function(noTrailing = false) {
     if(!noTrailing) print('\n');
 
-    print("What superhero do you want to get stats for?  You may use glob-style expressions. 'exit' to exit.");
+    print("What superhero do you want to get stats for?  You may use globbing pattern matching expressions:\n*     - matches anything, including nothing\n?     - matches any one character\n[abc] - matches any of the charactes between the brackets, such as 'a', 'b', or 'c'.\n[a-c] - Matches any character that inclusively falls within the range of specified characters,\n        in this case being 'a' through 'c' inclusively.\n\nType 'exit' to exit");
 }
 
 promptForInput(true);
